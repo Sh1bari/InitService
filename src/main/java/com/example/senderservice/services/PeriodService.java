@@ -30,6 +30,7 @@ public class PeriodService {
             List<Period> periods = Arrays.asList(objectMapper.readValue(file.getBytes(), Period[].class));
 
             // Сохранение списка объектов в базу данных
+            periodRepo.deleteAll();
             periodRepo.saveAll(periods);
         } catch (IOException e) {
             e.printStackTrace(); // Лучше обработать исключение согласно вашим требованиям
