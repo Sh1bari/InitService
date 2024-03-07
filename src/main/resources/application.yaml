@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: ${PORT:8080}
   servlet:
     context-path: /api
 spring:
@@ -12,9 +12,9 @@ spring:
       mode: always
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/Periods
-    username: root
-    password: 123
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/Periods}
+    username: ${DATABASE_USERNAME:root}
+    password: ${DATABASE_PASSWORD:123}
   jpa:
     openInView: true
     show-sql: false
